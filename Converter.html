@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Converter</title>
+        <style>
+            body 
+            {
+                background-color: rgb(244, 207, 120);
+                color: black;
+                text-align: center;
+            }
+
+            .tempStyle {
+                font-size: 48px;
+                font-weight: bolder;
+                padding: 5px;
+                color: darkblue;
+                background-color: rgba(196, 192, 186, 0.953);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Converter</h1>
+        
+        <!-- Output -->
+        <p class="tempStyle" id="pTemperature">
+            [Temperature Here]
+        </p>
+
+        <!-- User Input -->
+        <div>
+            Enter Temperature to Convert: 
+            <br>
+
+            <!-- Textbox -->
+            <input type="number" id="tbInput" placeholder="74" />
+            <br><br>
+
+            <!-- Buttons -->
+            <input type="button" value="Convert To Fahrenheit" onclick="ConvertF();"/>
+            <input type="button" value="Convert To Celcius" onclick="ConvertC();"/>
+
+
+        </div>
+        <br>
+         <!-- Output -->
+         <p class="tempStyle" id="pMeasure">
+            [Measure Here]
+        </p>
+
+        <!-- User Input -->
+        <div>
+            Enter Measure to Convert: 
+            <br>
+
+            <!-- Textbox -->
+            <input type="number" id="tbInputMeasure" placeholder="100" />
+            <br><br>
+
+            <!-- Buttons -->
+            <input type="button" value="Convert To Feet" onclick="ConvertFeet();"/>
+            <input type="button" value="Convert To Meters" onclick="ConvertMeters();"/>
+            <br><br>
+            <input type="button" value="Convert To SQ Meters" onclick="ConvertSQMeters();"/>
+            <input type="button" value="Convert To SQ Foot" onclick="ConvertSQFoot();"/>
+
+
+        </div>
+
+        <!-- Script -->
+        <script>
+        
+        //Function to convert to Fahrenheit
+        function ConvertF()        
+        {
+            var CELSIUS = document.getElementById("tbInput").value;
+            CELSIUS = parseInt(CELSIUS);
+            var ConveF = (CELSIUS * 9/5) + 32;
+            ConveF = parseInt(ConveF);
+            document.getElementById("pTemperature").innerText = ConveF + " °F";           
+        }    
+
+        //Function to convert to Celsius
+        function ConvertC()        
+        {
+            var FAHRENHEIT = document.getElementById("tbInput").value;
+            FAHRENHEIT = parseInt(FAHRENHEIT);
+            var ConveC = (FAHRENHEIT - 32) * 5/9;
+            ConveC = parseInt(ConveC);
+            document.getElementById("pTemperature").innerText = ConveC + " °C";            
+        }    
+
+        //Function to convert to Feet
+        function ConvertFeet()        
+        {
+            var FEET = document.getElementById("tbInputMeasure").value;
+            FEET = parseInt(FEET);
+            var ConveFeet = FEET * 3.280839895;
+            ConveFeet = parseInt(ConveFeet);
+            document.getElementById("pMeasure").innerText = ConveFeet + " Feet";            
+        }
+        
+        //Function to convert to Meters
+        function ConvertMeters()        
+        {
+            var METERS = document.getElementById("tbInputMeasure").value;
+            METERS = parseInt(METERS);
+            var ConveMeters = METERS / 3.280839895;
+            ConveMeters = parseInt(ConveMeters);
+            document.getElementById("pMeasure").innerText = ConveMeters + " Meters";            
+        }
+
+        //Function to convert to SQMeters
+        function ConvertSQMeters()        
+        {
+            var SQMETERS = document.getElementById("tbInputMeasure").value;
+            SQMETERS = parseInt(SQMETERS);
+            var ConveSQMeters = ( SQMETERS * 0.09290304 ) ;
+            ConveSQMeters = parseInt(ConveSQMeters);
+            document.getElementById("pMeasure").innerText = ConveSQMeters + " Square Meters";            
+        }
+
+        //Function to convert to SQ Feet
+        function ConvertSQFoot()        
+        {
+            var SQFOOT = document.getElementById("tbInputMeasure").value;
+            SQFOOT = parseInt(SQFOOT);
+            var ConveSQMeters = ( SQFOOT / 10.7639104 ) ;
+            ConveSQMeters = parseInt(ConveSQMeters);
+            document.getElementById("pMeasure").innerText = ConveSQMeters + " Square Foot";            
+        }
+
+        </script>
+    </body>
+</html>
